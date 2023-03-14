@@ -38,6 +38,14 @@ void lepton_read_data(uint16_t size, uint16_t* buffer){
 	}
 }
 
+uint16_t busy_check(){
+	uint16_t status = lepton_read_status();
+	do{ status = lepton_read_status(); }
+	while((status & 0x01) == 1);
+
+	return status;
+}
+
 uint16_t lepton_run_command(uint16_t command){
 	busy_check();
 
@@ -111,14 +119,6 @@ void lepton_write_data(uint8_t *data, uint16_t size){
 	}
 
 	HAL_I2C_Master_Transmit(HI2C, I2C_ADDRESS, (uint8_t*)buffer, size*2 + 2, 1000);
-}
-
-uint16_t busy_check(){
-	uint16_t status = lepton_read_status();
-	do{ status = lepton_read_status(); }
-	while((status & 0x01) == 1);
-
-	return status;
 }
 
 void lepton_write(uint16_t command, uint8_t* data, uint16_t size){

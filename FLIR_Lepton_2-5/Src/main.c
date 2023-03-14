@@ -133,13 +133,14 @@ int main(void)
 
   lepton_RAD_disable();
   lepton_VID_FMC_disable();
-  lepton_telemetry_disable();
   lepton_focus_disable();
   lepton_OEM_source_select();
   lepton_OEM_output_enable();
   lepton_AGC_enable();
 
   lepton_AGC_calc_enable();
+
+  HAL_Delay(500);
 
   lepton_video_format_RGB888();
   lepton_select_LUT(1);

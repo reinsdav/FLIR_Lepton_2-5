@@ -66,7 +66,6 @@ void lepton_RAD_Tlin_enable();
 void lepton_RAD_set_linear_params(uint16_t emissivity, uint16_t TBkgK, uint16_t tauWindow, uint16_t TWindowK, uint16_t tauAtm, uint16_t TAtmK, uint16_t refWindow, uint16_t TRefK);
 void lepton_AGC_calc_enable();
 void lepton_RAD_disable();
-void lepton_telemetry_disable();
 void lepton_focus_disable();
 void lepton_OEM_output_enable();
 void lepton_RAD_set_ROI();
